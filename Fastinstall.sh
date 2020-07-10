@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd $HOME/ve
+cd $HOME/Harley
 install() {
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
@@ -11,7 +11,7 @@ chmod +x ts
 get() {
 rm -fr Harley.lua
 rm -fr sudo.lua
-wget "https://raw.githubusercontent.com/MdHaRleY/ve/master/Harley.lua"
+wget "https://raw.githubusercontent.com/MdHaRleY/Harley/master/Harley.lua"
 lua start.lua
 }
 installall(){
@@ -48,7 +48,7 @@ fi
 installall
 cd ..
 rm -rf luarocks*
-cd ve
+cd Harley
 rm -rf luarocks*
 lua start.lua
 

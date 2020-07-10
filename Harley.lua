@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,781179034}
+List_Sudos = {Id_Sudo,1242929631}
 print("\27[34m"..[[
 
 >> Best Source in Telegram
@@ -28,7 +28,7 @@ print("\27[34m"..[[
 |_$$     |_$$/$$/              \$$\|$$|       |$$|$$$$$$$$$$$$$| |$$$$|
                                                                                                                                                                          
 
->> CH > @DFPF
+>> CH > @DFPFD
 >> DEVELOPER > @MD_200
 ]].."\27[m")
 
@@ -4503,8 +4503,8 @@ database:set(bot_id.."Tshake:Left:Bot"..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_, "📫┇تم تعطيل مغادرة البوت") 
 return false 
 end
-if text == (database:get(bot_id.."Tshake:Name:Bot") or "فينوس") then
-Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "فينوس")
+if text == (database:get(bot_id.."Tshake:Name:Bot") or "هارلي") then
+Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "هارلي")
 local namebot = {
 "عمري فداك "..Namebot.. " كول حب ",
 "كول حبيبي ؟ اني "..Namebot,
@@ -4523,7 +4523,7 @@ return false
 end
 
 if text == "بوت" then
-Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "فينوس")
+Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "هارلي")
 send(msg.chat_id_, msg.id_,"اسمي القميل ["..Namebot.."] ") 
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" then 
@@ -5727,8 +5727,8 @@ if text == ("تحديث السورس") and DevTshake(msg) then
 send(msg.chat_id_,msg.id_,'☑┇تم التحديث')
 os.execute('rm -rf Harley.lua')
 os.execute('rm -rf start.lua')
-download_to_file('https://raw.githubusercontent.com/MdHaRleY/ve/master/Harley.lua', 'Harley.lua') 
-download_to_file('https://raw.githubusercontent.com/MdHaRleY/ve/master/start.lua', 'start.lua') 
+download_to_file('https://raw.githubusercontent.com/MdHaRleY/Harley/master/Harley.lua', 'Harley.lua') 
+download_to_file('https://raw.githubusercontent.com/MdHaRleY/Harley/master/start.lua', 'start.lua') 
 dofile('Harley.lua')  
 return false
 end
@@ -5848,7 +5848,7 @@ if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
-local TextS = "\n📂┇اهلا بك في متجر ملفات فينوس \n📮┇الملفات الموجوده حاليا \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n\n"
+local TextS = "\n📂┇اهلا بك في متجر ملفات هارلي \n📮┇الملفات الموجوده حاليا \nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n\n"
 local TextE = "\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ\n📌┇تدل علامة (✔) الملف مفعل\n".."📌┇تدل علامة (✖) الملف معطل\n"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
@@ -5990,9 +5990,9 @@ if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or tex
 Text = [[
 🔰 Welcome to Source 🔰
 
-🌐┇Venus TEAM 
+🌐┇HaRleY TEAM 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-This Source for Venus Group
+DEVELOPER ~# [@MD_200]
 ]]
 send(msg.chat_id_, msg.id_,Text)
 end
@@ -6772,8 +6772,8 @@ if text == "تحديث السورس 📥" then
 send(msg.chat_id_,msg.id_,'☑┇تم التحديث')
 os.execute('rm -rf Harley.lua')
 os.execute('rm -rf start.lua')
-download_to_file('https://raw.githubusercontent.com/MdHaRleY/ve/master/Harley.lua', 'Harley.lua') 
-download_to_file('https://raw.githubusercontent.com/MdHaRleY/ve/master/start.lua', 'start.lua') 
+download_to_file('https://raw.githubusercontent.com/MdHaRleY/Harley/master/Harley.lua', 'Harley.lua') 
+download_to_file('https://raw.githubusercontent.com/MdHaRleY/Harley/master/start.lua', 'start.lua') 
 dofile('Harley.lua')  
 return false
 end
@@ -6907,7 +6907,7 @@ if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-local Name_Bot = (database:get(bot_id.."Tshake:Name:Bot") or "فينوس")
+local Name_Bot = (database:get(bot_id.."Tshake:Name:Bot") or "هارلي")
 if not database:get(bot_id.."Tshake:Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 

