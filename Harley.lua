@@ -98,7 +98,7 @@ end
 end
 function Oner(msg)
 local hash = database:sismember(bot_id.."Tshake:Managr", msg.sender_user_id_)    
-if hash or DevTshake(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) then    
+if hash or DevTshake(msg) then    
 return true    
 else    
 return false    
@@ -2519,14 +2519,14 @@ if data.Ch_Member.TshAkE ~= true then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@zx_xx] ⚜️')   
 return false 
 end
-function Function_Tshake(extra, result, success)
+function Function_Tshak1(extra, result, success)
 database:sadd(bot_id.."Tshake:Managr", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم ترقيته مدير للكل")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshak1, nil)
 return false
 end  
-if text and text:match("^رفع مدير للكل @(.*)$") and Constructor(msg) then 
+if text and text:match("^رفع مدير للكل @(.*)$") and DevTshake(msg) then 
 local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TshAkE ~= true then
@@ -2534,7 +2534,7 @@ send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمك
 return false 
 end
 local username = text:match("^رفع مدير للكل @(.*)$") 
-function Function_Tshake(extra, result, success)
+function Function_Tshak1(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -2546,7 +2546,7 @@ else
 send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshak1, nil)
 return false
 end 
 
@@ -2562,21 +2562,21 @@ database:sadd(bot_id.."Tshake:Managr", userid)
 Reply_Status(msg,userid,"reply","💢┇تم ترقيته مدير للكل")  
 return false
 end  
-if text == ("تنزيل مدير للكل") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then 
+if text == ("تنزيل مدير للكل") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) then 
 local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TshAkE ~= true then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@zx_xx] ⚜️')   
 return false 
 end
-function Function_Tshake(extra, result, success)
-database:srem(bot_id.."Tshake:Managr"..msg.chat_id_, result.sender_user_id_)
+function Function_Tshak1(extra, result, success)
+database:srem(bot_id.."Tshake:Managr", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم تنزيله من المدراء العامين")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshak1, nil)
 return false
 end  
-if text and text:match("^تنزيل مدير للكل @(.*)$") and Constructor(msg) then 
+if text and text:match("^تنزيل مدير للكل @(.*)$") and DevTshake(msg) then 
 local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TshAkE ~= true then
@@ -2584,18 +2584,18 @@ send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمك
 return false 
 end
 local username = text:match("^تنزيل مدير للكل @(.*)$")
-function Function_Tshake(extra, result, success)
+function Function_Tshak1(extra, result, success)
 if result.id_ then
-database:srem(bot_id.."Tshake:Managr"..msg.chat_id_, result.id_)
+database:srem(bot_id.."Tshake:Managr", result.id_)
 Reply_Status(msg,result.id_,"reply","💢┇تم تنزيله من مدير للكل")  
 else
 send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshak1, nil)
 return false
 end  
-if text and text:match("^تنزيل مدير للكل (%d+)$") and Constructor(msg) then 
+if text and text:match("^تنزيل مدير للكل (%d+)$") and DevTshake(msg) then 
 local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TshAkE ~= true then
@@ -2603,7 +2603,7 @@ send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمك
 return false 
 end
 local userid = text:match("^تنزيل مدير للكل (%d+)$") 
-database:srem(bot_id.."Tshake:Managr"..msg.chat_id_, userid)
+database:srem(bot_id.."Tshake:Managr", userid)
 Reply_Status(msg,userid,"reply","💢┇تم تنزيله من مدير للكل")  
 return false
 end
