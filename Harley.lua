@@ -4501,8 +4501,8 @@ database:set(bot_id.."Tshake:Left:Bot"..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_, "📫┇تم تعطيل مغادرة البوت") 
 return false 
 end
-if text == (database:get(bot_id.."Tshake:Name:Bot") or "فينوس") then
-Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "فينوس")
+if text == (database:get(bot_id.."Tshake:Name:Bot") or "هارلي") then
+Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "هارلي")
 local namebot = {
 "عمري فداك "..Namebot.. " كول حب ",
 "كول حبيبي ؟ اني "..Namebot,
@@ -4521,7 +4521,7 @@ return false
 end
 
 if text == "بوت" then
-Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "فينوس")
+Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "هارلي")
 send(msg.chat_id_, msg.id_,"اسمي القميل ["..Namebot.."] ") 
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" then 
@@ -6905,7 +6905,7 @@ if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-local Name_Bot = (database:get(bot_id.."Tshake:Name:Bot") or "فينوس")
+local Name_Bot = (database:get(bot_id.."Tshake:Name:Bot") or "هارلي")
 if not database:get(bot_id.."Tshake:Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
