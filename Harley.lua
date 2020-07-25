@@ -27,8 +27,6 @@ print("\27[34m"..[[
 | $$     | $$ /$$/            \$$\ |$$|       |$$|$$$$$$$$$$$$$| |$$$$|
 |_$$     |_$$/$$/              \$$\|$$|       |$$|$$$$$$$$$$$$$| |$$$$|
                                                                                                                                                                          
-
->> CH > @DFPFD
 >> DEVELOPER > @MD_200
 ]].."\27[m")
 
@@ -73,14 +71,6 @@ else
 return false  
 end  
 end
-function oner(msg) 
-local hash = database:sismember(bot_id.."Tshake:Sudos:manager", msg.sender_user_id_) 
-if hash or DevTshake(msg) then  
-return true  
-else  
-return false  
-end  
-end
 function BasicConstructor(msg)
 local hash = database:sismember(bot_id.."Tshake:Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) 
 if hash or DevTshake(msg) or DevBot(msg) then 
@@ -107,7 +97,7 @@ end
 end
 function Addictive(msg)
 local hash = database:sismember(bot_id.."Tshake:Mod:User"..msg.chat_id_,msg.sender_user_id_)    
-if hash or DevTshake(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or oner(msg) then    
+if hash or DevTshake(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) then    
 return true    
 else    
 return false    
@@ -115,7 +105,7 @@ end
 end
 function Vips(msg)
 local hash = database:sismember(bot_id.."Tshake:Special:User"..msg.chat_id_,msg.sender_user_id_) 
-if hash or DevTshake(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) or oner(msg) then    
+if hash or DevTshake(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) then    
 return true 
 else 
 return false 
@@ -129,8 +119,6 @@ elseif tonumber(user_id) == tonumber(bot_id) then
 var = true  
 elseif database:sismember(bot_id.."Tshake:Sudo:User", user_id) then
 var = true  
-elseif database:sismember(bot_id.."Tshake:Sudos:manager", user_id) then
-var = true
 elseif database:sismember(bot_id.."Tshake:Basic:Constructor"..chat_id, user_id) then
 var = true
 elseif database:sismember(bot_id.."Tshake:Constructor"..chat_id, user_id) then
@@ -155,8 +143,6 @@ elseif tonumber(user_id) == tonumber(bot_id) then
 var = "البوت"
 elseif database:sismember(bot_id.."Tshake:Sudo:User", user_id) then
 var = database:get(bot_id.."Tshake:Sudo:Rd"..chat_id) or "المطور"  
-elseif database:sismember(bot_id.."Tshake:Sudos:manager", user_id) then
-var = database:get(bot_id.."Tshake:Sudos:Rd"..chat_id) or "مدير عام"
 elseif database:sismember(bot_id.."Tshake:Basic:Constructor"..chat_id, user_id) then
 var = database:get(bot_id.."Tshake:BasicConstructor:Rd"..chat_id) or "المنشئ اساسي"
 elseif database:sismember(bot_id.."Tshake:Constructor"..chat_id, user_id) then
@@ -1290,7 +1276,7 @@ end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' then
 if ChekAdd(msg.chat_id_) == true then
-if text == "قفل الدردشه" and msg.reply_to_message_id_ == 0 and owner(msg) or oner(msg) then 
+if text == "قفل الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
 database:set(bot_id.."Tshake:Lock:text"..msg.chat_id_,true) 
 Reply_Status(msg,msg.sender_user_id_,"lock","💢️┇تم قفـل الدردشه")  
 return false
@@ -1352,7 +1338,7 @@ database:del(bot_id.."Tshake:Lock:AddMempar"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"unlock","💢️┇تم فتح اضافة الاعضاء")  
 return false
 end 
-if text == "فتح الدردشه" and msg.reply_to_message_id_ == 0 and owner(msg) or oner(msg) then 
+if text == "فتح الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
 database:del(bot_id.."Tshake:Lock:text"..msg.chat_id_)  
 Reply_Status(msg,msg.sender_user_id_,"unlock","💢️┇تم فتح الدردشه")  
 return false
@@ -1928,7 +1914,7 @@ database:del(bot_id.."Tshake:Manager"..msg.chat_id_)
 texts = "✖┇ تم مسح المدراء "
 send(msg.chat_id_, msg.id_, texts)
 end
-if text == "مسح الادمنيه" and owner(msg) or oner(msg) then
+if text == "مسح الادمنيه" and Owner(msg) then
 database:del(bot_id.."Tshake:Mod:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "🗑┇ تم مسح  قائمة الادمنية  ")
 end
@@ -2026,7 +2012,7 @@ t = "✖┇لا يوجد مدراء"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("الادمنيه") and owner(msg) or oner(msg) then
+if text == ("الادمنيه") and Owner(msg) then
 local list = database:smembers(bot_id.."Tshake:Mod:User"..msg.chat_id_)
 t = "\n⛔┇قائمة الادمنيه \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
 for k,v in pairs(list) do
@@ -2234,66 +2220,6 @@ database:srem(bot_id.."Tshake:Sudo:User", userid)
 Reply_Status(msg,userid,"reply","💢┇تم تنزيله من المطورين")  
 return false 
 end
-
-if text == ("رفع مدير عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) then
-    function Function_Tshake(extra, result, success)
-    database:sadd(bot_id.."Tshake:Sudos:manager", result.sender_user_id_)
-    Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم ترقيته مدير عام في البوت")  
-    end
-    tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
-    return false 
-    end
-    if text and text:match("^رفع مدير عام @(.*)$") and DevTshake(msg) then
-    local username = text:match("^رفع مدير عام @(.*)$")
-    function Function_Tshake(extra, result, success)
-    if result.id_ then
-    if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-    send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
-    return false 
-    end      
-    database:sadd(bot_id.."Tshake:Sudos:manager", result.id_)
-    Reply_Status(msg,result.id_,"reply","💢┇تم ترقيته مدير عام في البوت")  
-    else
-    send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهاذا المعرف")
-    end
-    end
-    tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
-    return false 
-    end
-    if text and text:match("^رفع مدير عام (%d+)$") and DevTshake(msg) then
-    local userid = text:match("^رفع مدير عام (%d+)$")
-    database:sadd(bot_id.."Tshake:Sudos:manager", userid)
-    Reply_Status(msg,userid,"reply","💢┇تم ترقيته مدير عام في البوت")  
-    return false 
-    end
-    if text == ("تنزيل مدير عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) then
-    function Function_Tshake(extra, result, success)
-    database:srem(bot_id.."Tshake:Sudos:manager", result.sender_user_id_)
-    Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم تنزيله من المدراء العامين")  
-    end
-    tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
-    return false 
-    end
-    if text and text:match("^تنزيل مدير عام @(.*)$") and DevTshake(msg) then
-    local username = text:match("^تنزيل مدير عام @(.*)$")
-    function Function_Tshake(extra, result, success)
-    if result.id_ then
-    database:srem(bot_id.."Tshake:Sudos:manager", result.id_)
-    Reply_Status(msg,result.id_,"reply","💢┇تم تنزيله من المطورين")  
-    else
-    send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهاذا المعرف")
-    end
-    end
-    tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
-    return false
-    end  
-    if text and text:match("^تنزيل مدير عام (%d+)$") and DevTshake(msg) then
-    local userid = text:match("^تنزيل مدير عام (%d+)$")
-    database:srem(bot_id.."Tshake:Sudos:manager", userid)
-    Reply_Status(msg,userid,"reply","💢┇تم تنزيله من المدراء العامين")  
-    return false 
-    end
-    
 
 if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBot(msg) then 
 local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
@@ -2573,7 +2499,7 @@ Reply_Status(msg,userid,"reply","💢┇تم تنزيله من المدراء")
 return false
 end
 
-if text == ("رفع ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and owner(msg) or oner(msg) then 
+if text == ("رفع ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then 
 local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TshAkE ~= true then
@@ -2591,7 +2517,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
 return false
 end
-if text and text:match("^رفع ادمن @(.*)$") and owner(msg) or oner(msg) then 
+if text and text:match("^رفع ادمن @(.*)$") and Owner(msg) then 
 local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TshAkE ~= true then
@@ -2618,7 +2544,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
 return false
 end
-if text and text:match("^رفع ادمن (%d+)$") and owner(msg) or oner(msg) then 
+if text and text:match("^رفع ادمن (%d+)$") and Owner(msg) then 
 local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TshAkE ~= true then
@@ -2634,7 +2560,7 @@ database:sadd(bot_id.."Tshake:Mod:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","💢┇تم ترقيته ادمن للمجموعه")  
 return false
 end
-if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and owner(msg) or oner(msg) then 
+if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then 
 local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TshAkE ~= true then
@@ -2648,7 +2574,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
 return false
 end
-if text and text:match("^تنزيل ادمن @(.*)$") and owner(msg) or oner(msg) then 
+if text and text:match("^تنزيل ادمن @(.*)$") and Owner(msg) then 
 local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TshAkE ~= true then
@@ -2667,7 +2593,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
 return false
 end
-if text and text:match("^تنزيل ادمن (%d+)$") and owner(msg) or oner(msg) then 
+if text and text:match("^تنزيل ادمن (%d+)$") and Owner(msg) then 
 local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TshAkE ~= true then
@@ -2804,7 +2730,7 @@ if Tshakert == "مميز" and Addictive(msg) then
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم رفعه "..RTPA.." هنا\n")   
 database:set(bot_id.."Tshake:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA) 
 database:sadd(bot_id.."Tshake:Special:User"..msg.chat_id_,result.sender_user_id_)  
-elseif Tshakert == "ادمن" and owner(msg) or oner(msg) then 
+elseif Tshakert == "ادمن" and Owner(msg) then 
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم رفعه "..RTPA.." هنا\n")   
 database:set(bot_id.."Tshake:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_,RTPA)
 database:sadd(bot_id.."Tshake:Mod:User"..msg.chat_id_,result.sender_user_id_)  
@@ -2836,7 +2762,7 @@ if Tshakert == "مميز" and Addictive(msg) then
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم تنزيله من "..RTPA.." هنا\n")   
 database:srem(bot_id.."Tshake:Special:User"..msg.chat_id_,result.sender_user_id_)  
 database:del(bot_id.."Tshake:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
-elseif Tshakert == "ادمن" and owner(msg) or oner(msg) then 
+elseif Tshakert == "ادمن" and Owner(msg) then 
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم تنزيله من "..RTPA.." هنا\n")   
 database:srem(bot_id.."Tshake:Mod:User"..msg.chat_id_,result.sender_user_id_) 
 database:del(bot_id.."Tshake:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
@@ -2868,7 +2794,7 @@ if Tshakert == "مميز" and Addictive(msg) then
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Tshake:Special:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Tshake:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif Tshakert == "ادمن" and owner(msg) or oner(msg) then 
+elseif Tshakert == "ادمن" and Owner(msg) then 
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Tshake:Mod:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Tshake:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
@@ -2903,7 +2829,7 @@ if Tshakert == "مميز" and Addictive(msg) then
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n🔰┇تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."Tshake:Special:User"..msg.chat_id_,result.id_)  
 database:del(bot_id.."Tshake:Comd:New:rt:User:"..msg.chat_id_..result.id_)
-elseif Tshakert == "ادمن" and owner(msg) or oner(msg) then 
+elseif Tshakert == "ادمن" and Owner(msg) then 
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n🔰┇تم تنريله من "..text1[2].." هنا")   
 database:srem(bot_id.."Tshake:Mod:User"..msg.chat_id_,result.id_)  
 database:del(bot_id.."Tshake:Comd:New:rt:User:"..msg.chat_id_..result.id_)
@@ -3771,7 +3697,7 @@ return false
 end
 end
 if text == "ادمن" then
-if not Owner(msg) or oner(msg) then 
+if not Owner(msg) then 
 send(msg.chat_id_, msg.id_"🎖┇ارسل نوع الصلاحيه مره اخر\n📊┇تستطيع اضافة صلاحيه ( عضو ~ مميز )") 
 return false
 end
@@ -3791,44 +3717,44 @@ return false
 end 
 end
 
-if text and text:match("^تغير رد المطور (.*)$") and owner(msg) or oner(msg) then
+if text and text:match("^تغير رد المطور (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المطور (.*)$") 
 database:set(bot_id.."Tshake:Sudo:Rd"..msg.chat_id_,Teext)
 send(msg.chat_id_, msg.id_,"🔖┇ تم تغير رد المطور الى » "..Teext)
 end
-if text and text:match("^تغير رد المنشئ الاساسي (.*)$") and owner(msg) or oner(msg) then
+if text and text:match("^تغير رد المنشئ الاساسي (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المنشئ الاساسي (.*)$") 
 database:set(bot_id.."Tshake:BasicConstructor:Rd"..msg.chat_id_,Teext)
 send(msg.chat_id_, msg.id_,"🔖┇ تم تغير رد المنشئ الاساسي الى » "..Teext)
 end
-if text and text:match("^تغير رد المنشئ (.*)$") and owner(msg) or oner(msg) then
+if text and text:match("^تغير رد المنشئ (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المنشئ (.*)$") 
 database:set(bot_id.."Tshake:Constructor:Rd"..msg.chat_id_,Teext)
 send(msg.chat_id_, msg.id_,"🔖┇ تم تغير رد المنشئ الى » "..Teext)
 end
-if text and text:match("^تغير رد المدير (.*)$") and owner(msg) or oner(msg) then
+if text and text:match("^تغير رد المدير (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المدير (.*)$") 
 database:set(bot_id.."Tshake:Manager:Rd"..msg.chat_id_,Teext) 
 send(msg.chat_id_, msg.id_,"🔖┇ تم تغير رد المدير الى » "..Teext)
 end
-if text and text:match("^تغير رد الادمن (.*)$") and owner(msg) or oner(msg) then
+if text and text:match("^تغير رد الادمن (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد الادمن (.*)$") 
 database:set(bot_id.."Tshake:Mod:Rd"..msg.chat_id_,Teext)
 send(msg.chat_id_, msg.id_,"🔖┇ تم تغير رد الادمن الى » "..Teext)
 end
-if text and text:match("^تغير رد المميز (.*)$") and owner(msg) or oner(msg) then
+if text and text:match("^تغير رد المميز (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد المميز (.*)$") 
 database:set(bot_id.."Tshake:Special:Rd"..msg.chat_id_,Teext)
 send(msg.chat_id_, msg.id_,"🔖┇ تم تغير رد المميز الى » "..Teext)
 end
-if text and text:match("^تغير رد العضو (.*)$") and owner(msg) or oner(msg) then
+if text and text:match("^تغير رد العضو (.*)$") and Owner(msg) then
 local Teext = text:match("^تغير رد العضو (.*)$") 
 database:set(bot_id.."Tshake:Memp:Rd"..msg.chat_id_,Teext)
 send(msg.chat_id_, msg.id_,"🔖┇ تم تغير رد العضو الى » "..Teext)
 end
 
 
-if text == ("مسح ردود المدير") and owner(msg) or oner(msg) then
+if text == ("مسح ردود المدير") and Owner(msg) then
 local list = database:smembers(bot_id.."Tshake:List:Manager"..msg.chat_id_.."")
 for k,v in pairs(list) do
 database:del(bot_id.."Tshake:Add:Rd:Manager:Gif"..v..msg.chat_id_)   
@@ -3843,7 +3769,7 @@ database:del(bot_id.."Tshake:List:Manager"..msg.chat_id_)
 end
 send(msg.chat_id_, msg.id_,"📌┇تم مسح ردود المدير")
 end
-if text == ("ردود المدير") and owner(msg) or oner(msg) then
+if text == ("ردود المدير") and Owner(msg) then
 local list = database:smembers(bot_id.."Tshake:List:Manager"..msg.chat_id_.."")
 text = "📑┇قائمه ردود المدير \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
@@ -3919,12 +3845,12 @@ send(msg.chat_id_, msg.id_,"📌┇تم حفظ الرد بنجاح")
 return false  
 end  
 end
-if text == "اضف رد" and owner(msg) or oner(msg) then
+if text == "اضف رد" and Owner(msg) then
 send(msg.chat_id_, msg.id_,"📫┇ارسل الكلمه التري تريد اضافتها")
 database:set(bot_id.."Tshake:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
-if text == "حذف رد" and owner(msg) or oner(msg) then
+if text == "حذف رد" and Owner(msg) then
 send(msg.chat_id_, msg.id_,"📫┇ارسل الكلمه التري تريد حذفها")
 database:set(bot_id.."Tshake:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
 return false 
@@ -4213,24 +4139,24 @@ end,nil)
 end
 end
 
-if text == "تفعيل ردود المدير" and owner(msg) or oner(msg) then   
+if text == "تفعيل ردود المدير" and Owner(msg) then   
 database:del(bot_id.."Tshake:Reply:Manager"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"📛┇تم تفعيل ردود المدير") 
 end
-if text == "تعطيل ردود المدير" and owner(msg) or oner(msg) then  
+if text == "تعطيل ردود المدير" and Owner(msg) then  
 database:set(bot_id.."Tshake:Reply:Manager"..msg.chat_id_,true)  
 send(msg.chat_id_, msg.id_,"📛┇تم تعطيل ردود المدير" ) 
 end
-if text == "تفعيل ردود المطور" and owner(msg) or oner(msg) then   
+if text == "تفعيل ردود المطور" and Owner(msg) then   
 database:del(bot_id.."Tshake:Reply:Sudo"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"📛┇تم تفعيل ردود المطور" ) 
 end
-if text == "تعطيل ردود المطور" and owner(msg) or oner(msg) then  
+if text == "تعطيل ردود المطور" and Owner(msg) then  
 database:set(bot_id.."Tshake:Reply:Sudo"..msg.chat_id_,true)   
 send(msg.chat_id_, msg.id_,"📛┇تم تعطيل ردود المطور" ) 
 end
 
-if text == ("تنزيل الكل") and msg.reply_to_message_id_ ~= 0 and owner(msg) or oner(msg) then
+if text == ("تنزيل الكل") and msg.reply_to_message_id_ ~= 0 and Owner(msg) then
 function Function_Tshake(extra, result, success)
 if tonumber(SUDO) == tonumber(result.sender_user_id_) then
 send(msg.chat_id_, msg.id_,"💢┇ لا تستطيع تنزيل المطور الاساسي")
@@ -4365,17 +4291,17 @@ send(msg.chat_id_, msg.id_,"💢┇ امر اطردني تم تعطيله من �
 end
 end
 
-if text == "تفعيل اطردني" and owner(msg) or oner(msg) then   
+if text == "تفعيل اطردني" and Owner(msg) then   
 database:del(bot_id.."Tshake:Kick:Me"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == "تعطيل اطردني" and owner(msg) or oner(msg) then  
+if text == "تعطيل اطردني" and Owner(msg) then  
 database:set(bot_id.."Tshake:Kick:Me"..msg.chat_id_,true)  
 Text = "\n📫┇تم تعطيل امر اطردني"
 send(msg.chat_id_, msg.id_,Text) 
 end
 
-if text and text:match("^رفع القيود @(.*)") and owner(msg) or oner(msg) then 
+if text and text:match("^رفع القيود @(.*)") and Owner(msg) then 
 local username = text:match("^رفع القيود @(.*)") 
 function Function_Tshake(extra, result, success)
 if result.id_ then
@@ -4399,7 +4325,7 @@ end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
 end
-if text == "رفع القيود" and owner(msg) or oner(msg) then
+if text == "رفع القيود" and Owner(msg) then
 function Function_Tshake(extra, result, success)
 if DevTshake(msg) then
 database:srem(bot_id.."Tshake:GBan:User",result.sender_user_id_)
@@ -4418,7 +4344,7 @@ end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
 end
-if text and text:match("^كشف القيود @(.*)") and owner(msg) or oner(msg) then 
+if text and text:match("^كشف القيود @(.*)") and Owner(msg) then 
 local username = text:match("^كشف القيود @(.*)") 
 function Function_Tshake(extra, result, success)
 if result.id_ then
@@ -4445,7 +4371,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
 end
 
-if text == "كشف القيود" and owner(msg) or oner(msg) then 
+if text == "كشف القيود" and Owner(msg) then 
 function Function_Tshake(extra, result, success)
 if database:sismember(bot_id.."Tshake:Muted:User"..msg.chat_id_,result.sender_user_id_) then
 Muted = "مكتوم"
@@ -4468,7 +4394,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
 end
 
-if text and text:match("^ضع اسم (.*)") and owner(msg) or oner(msg) or text and text:match("^وضع اسم (.*)") and owner(msg) or oner(msg) then 
+if text and text:match("^ضع اسم (.*)") and Owner(msg) or text and text:match("^وضع اسم (.*)") and Owner(msg) then 
 local Name = text:match("^ضع اسم (.*)") or text:match("^وضع اسم (.*)") 
 tdcli_function ({ ID = "ChangeChatTitle",chat_id_ = msg.chat_id_,title_ = Name },function(arg,data) 
 if data.message_ == "Channel chat title can be changed by administrators only" then
@@ -4483,7 +4409,7 @@ end
 end,nil) 
 end
 
-if text ==("رفع الادمنيه") and owner(msg) or oner(msg) then
+if text ==("رفع الادمنيه") and Owner(msg) then
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local num2 = 0
 local admins = data.members_
@@ -4575,8 +4501,8 @@ database:set(bot_id.."Tshake:Left:Bot"..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_, "📫┇تم تعطيل مغادرة البوت") 
 return false 
 end
-if text == (database:get(bot_id.."Tshake:Name:Bot") or "هارلي") then
-Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "هارلي")
+if text == (database:get(bot_id.."Tshake:Name:Bot") or "فينوس") then
+Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "فينوس")
 local namebot = {
 "عمري فداك "..Namebot.. " كول حب ",
 "كول حبيبي ؟ اني "..Namebot,
@@ -4595,7 +4521,7 @@ return false
 end
 
 if text == "بوت" then
-Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "هارلي")
+Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "فينوس")
 send(msg.chat_id_, msg.id_,"اسمي القميل ["..Namebot.."] ") 
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" then 
@@ -5006,32 +4932,32 @@ local text =
 "\n\n.*"
 send(msg.chat_id_, msg.id_,text)     
 end    
-if text == "تعطيل اوامر التحشيش" and owner(msg) or oner(msg) then    
+if text == "تعطيل اوامر التحشيش" and Owner(msg) then    
 send(msg.chat_id_, msg.id_, '☑┇تم تعطيل اوامر التحشيش')
 database:set(bot_id.."Tshake:Fun_Bots"..msg.chat_id_,"true")
 end
-if text == "تفعيل اوامر التحشيش" and owner(msg) or oner(msg) then    
+if text == "تفعيل اوامر التحشيش" and Owner(msg) then    
 send(msg.chat_id_, msg.id_,'☑┇تم تفعيل اوامر التحشيش')
 database:del(bot_id.."Tshake:Fun_Bots"..msg.chat_id_)
 end
 
-if text == 'تفعيل الايدي' and owner(msg) or oner(msg) then   
+if text == 'تفعيل الايدي' and Owner(msg) then   
 database:del(bot_id..'Tshake:Lock:ID:Bot'..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,'☑┇تم تفعيل الايدي') 
 end
-if text == 'تعطيل الايدي' and owner(msg) or oner(msg) then  
+if text == 'تعطيل الايدي' and Owner(msg) then  
 database:set(bot_id..'Tshake:Lock:ID:Bot'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,'☑┇تم تعطيل الايدي') 
 end
-if text == 'تفعيل الايدي بالصوره' and owner(msg) or oner(msg) then   
+if text == 'تفعيل الايدي بالصوره' and Owner(msg) then   
 database:del(bot_id..'Tshake:Lock:ID:Bot:Photo'..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,'☑┇تم تفعيل الايدي بالصوره') 
 end
-if text == 'تعطيل الايدي بالصوره' and owner(msg) or oner(msg) then  
+if text == 'تعطيل الايدي بالصوره' and Owner(msg) then  
 database:set(bot_id..'Tshake:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,'☑┇تم تعطيل الايدي بالصوره') 
 end
-if text == 'تعين الايدي' and owner(msg) or oner(msg) then
+if text == 'تعين الايدي' and Owner(msg) then
 database:setex(bot_id.."Tshake:Set:Id:Gp"..msg.chat_id_..""..msg.sender_user_id_,240,true)  
 local Text= [[
 ☑┇ ارسل الان النص
@@ -5051,7 +4977,7 @@ send(msg.chat_id_, msg.id_,Text)
 return false  
 end 
 if text == 'حذف الايدي' or text == 'مسح الايدي' then
-if Owner(msg) oner(msg) then
+if Owner(msg) then
 database:del(bot_id.."Tshake:Klesh:Id:Bot"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '📌┇تم ازالة كليشة الايدي ')
 end
@@ -5567,11 +5493,11 @@ database:incrby(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)
 end
 database:set(bot_id.."Tshak:Set:Amth:Bot"..msg.chat_id_,true)
 end
-if text == "تعطيل الالعاب" and owner(msg) or oner(msg) then   
+if text == "تعطيل الالعاب" and Owner(msg) then   
 database:del(bot_id.."Tshak:Lock:Games"..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,"\n☑┇تم تعطيل الالعاب") 
 end
-if text == "تفعيل الالعاب" and owner(msg) or oner(msg) then  
+if text == "تفعيل الالعاب" and Owner(msg) then  
 database:set(bot_id.."Tshak:Lock:Games"..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,"\n☑┇تم تفعيل الالعاب") 
 end
@@ -6063,7 +5989,7 @@ Text = [[
 🔰 Welcome to Source 🔰
 
 🌐┇HaRleY TEAM 
-┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
 DEVELOPER ~# [@MD_200]
 ]]
 send(msg.chat_id_, msg.id_,Text)
@@ -6187,7 +6113,7 @@ Text = [[
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-if text == 'م3' and owner(msg) or oner(msg) then
+if text == 'م3' and Owner(msg) then
 Text = [[
 🥇┇ اوامر المدراء
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
@@ -6979,7 +6905,7 @@ if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-local Name_Bot = (database:get(bot_id.."Tshake:Name:Bot") or "هارلي")
+local Name_Bot = (database:get(bot_id.."Tshake:Name:Bot") or "فينوس")
 if not database:get(bot_id.."Tshake:Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
