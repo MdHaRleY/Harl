@@ -63,17 +63,9 @@ end
 end  
 return Taha_Sudo  
 end 
-function DevHarley(msg)
-local hash = database:sismember(bot_id.."Tshake:Sudo:Usr", msg.sender_user_id_)
-if hash or DevTshake(msg) then
-return true
-else
-return false
-end
-end
 function DevBot(msg) 
 local hash = database:sismember(bot_id.."Tshake:Sudo:User", msg.sender_user_id_) 
-if hash or DevTshake(msg) or DevHarley(msg) then  
+if hash or DevTshake(msg) then  
 return true  
 else  
 return false  
@@ -81,7 +73,7 @@ end
 end
 function BasicConstructor(msg)
 local hash = database:sismember(bot_id.."Tshake:Basic:Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or DevTshake(msg) or DevHarley(msg) or DevBot(msg) then 
+if hash or DevTshake(msg) or DevBot(msg) then 
 return true 
 else 
 return false 
@@ -89,7 +81,7 @@ end
 end
 function Constructor(msg)
 local hash = database:sismember(bot_id.."Tshake:Constructor"..msg.chat_id_, msg.sender_user_id_) 
-if hash or DevTshake(msg) or DevHarley(msg) or DevBot(msg) or BasicConstructor(msg) then    
+if hash or DevTshake(msg) or DevBot(msg) or BasicConstructor(msg) then    
 return true    
 else    
 return false    
@@ -97,7 +89,7 @@ end
 end
 function Owner(msg)
 local hash = database:sismember(bot_id.."Tshake:Manager"..msg.chat_id_,msg.sender_user_id_)    
-if hash or DevTshake(msg) or DevHarley(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) then    
+if hash or DevTshake(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) then    
 return true    
 else    
 return false    
@@ -105,7 +97,7 @@ end
 end
 function Addictive(msg)
 local hash = database:sismember(bot_id.."Tshake:Mod:User"..msg.chat_id_,msg.sender_user_id_)    
-if hash or DevTshake(msg) or DevHarley(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) then    
+if hash or DevTshake(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) then    
 return true    
 else    
 return false    
@@ -113,7 +105,7 @@ end
 end
 function Vips(msg)
 local hash = database:sismember(bot_id.."Tshake:Special:User"..msg.chat_id_,msg.sender_user_id_) 
-if hash or DevTshake(msg) or DevHarley(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) then    
+if hash or DevTshake(msg) or DevBot(msg) or BasicConstructor(msg) or Constructor(msg) or Owner(msg) or Addictive(msg) then    
 return true 
 else 
 return false 
@@ -125,8 +117,6 @@ if tonumber(user_id) == tonumber(Id_Sudo) then
 var = true  
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = true  
-elseif database:sismember(bot_id.."Tshake:Sudo:Usr", user_id) then
-var = true
 elseif database:sismember(bot_id.."Tshake:Sudo:User", user_id) then
 var = true  
 elseif database:sismember(bot_id.."Tshake:Basic:Constructor"..chat_id, user_id) then
@@ -151,8 +141,6 @@ elseif DevTshakee(user_id) == true then
 var = "المطور الاساسي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = "البوت"
-elseif database:sismember(bot_id.."Tshake:Sudo:Usr", user_id)then
-var = "مطور مميز"
 elseif database:sismember(bot_id.."Tshake:Sudo:User", user_id) then
 var = database:get(bot_id.."Tshake:Sudo:Rd"..chat_id) or "المطور"  
 elseif database:sismember(bot_id.."Tshake:Basic:Constructor"..chat_id, user_id) then
@@ -1902,12 +1890,12 @@ Reply_Status(msg,msg.sender_user_id_,"unlock","💢️┇تم فتح التكر�
 return false
 end 
 
-if text == ("مسح قائمه العام") and DevTshake(msg) or DevHarley(msg) then
+if text == ("مسح قائمه العام") and DevTshake(msg) then
 database:del(bot_id.."Tshake:GBan:User")
 send(msg.chat_id_, msg.id_, "\n📮┇تم مسح قائمه العام")
 return false
 end
-if text == ("مسح المطورين") and DevTshake(msg) or DevHarley(msg) then
+if text == ("مسح المطورين") and DevTshake(msg) then
 database:del(bot_id.."Tshake:Sudo:User")
 send(msg.chat_id_, msg.id_, "\n📮┇ تم مسح قائمة المطورين  ")
 end
@@ -1942,7 +1930,7 @@ if text == "مسح المحظورين" and Addictive(msg) then
 database:del(bot_id.."Tshake:Ban:User"..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "\n🚷┇تم مسح المحظورين")
 end
-if text == ("قائمه العام") and DevTshake(msg) or DevHarley(msg) then
+if text == ("قائمه العام") and DevTshake(msg) then
 local list = database:smembers(bot_id.."Tshake:GBan:User")
 t = "\n⛔┇قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
 for k,v in pairs(list) do
@@ -1959,7 +1947,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("المطورين") and DevTshake(msg) or DevHarley(msg) then
+if text == ("المطورين") and DevTshake(msg) then
 local list = database:smembers(bot_id.."Tshake:Sudo:User")
 t = "\n⛔┇قائمة مطورين البوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
 for k,v in pairs(list) do
@@ -2090,7 +2078,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 
-if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) or DevHarley(msg) then
+if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) then
 function Function_Tshake(extra, result, success)
 if result.sender_user_id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, "📮┇لا يمكنك حظر المطور الاساسي \n")
@@ -2107,7 +2095,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
 return false
 end
-if text and text:match("^حظر عام @(.*)$")  and DevTshake(msg) or DevHarley(msg) then
+if text and text:match("^حظر عام @(.*)$")  and DevTshake(msg) then
 local username = text:match("^حظر عام @(.*)$") 
 function Function_Tshake(extra, result, success)
 if result.id_ then
@@ -2132,7 +2120,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
 return false
 end
-if text and text:match("^حظر عام (%d+)$") and DevTshake(msg) or DevHarley(msg) then
+if text and text:match("^حظر عام (%d+)$") and DevTshake(msg) then
 local userid = text:match("^حظر عام (%d+)$")
 if userid == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, "📮┇لا يمكنك حظر المطور الاساسي \n")
@@ -2146,7 +2134,7 @@ database:sadd(bot_id.."Tshake:GBan:User", userid)
 Reply_Status(msg,userid,"reply","💢┇تم حظره عام من المجموعات")  
 return false
 end
-if text == ("الغاء العام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) or DevHarley(msg) then
+if text == ("الغاء العام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) then
 function Function_Tshake(extra, result, success)
 database:srem(bot_id.."Tshake:GBan:User", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم الغاء حظره عام من المجموعات")  
@@ -2154,7 +2142,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
 return false
 end
-if text and text:match("^الغاء العام @(.*)$") and DevTshake(msg) or DevHarley(msg) then
+if text and text:match("^الغاء العام @(.*)$") and DevTshake(msg) then
 local username = text:match("^الغاء العام @(.*)$") 
 function Function_Tshake(extra, result, success)
 if result.id_ then
@@ -2167,72 +2155,14 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
 return false
 end
-if text and text:match("^الغاء العام (%d+)$") and DevTshake(msg) or DevHarley(msg) then
+if text and text:match("^الغاء العام (%d+)$") and DevTshake(msg) then
 local userid = text:match("^الغاء العام (%d+)$")
 database:srem(bot_id.."Tshake:GBan:User", userid)
 Reply_Status(msg,userid,"reply","💢┇تم الغاء حظره عام من المجموعات")  
 return false
 end
-if text == ("رفع مطور مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) then
-    function Function_Tshake(extra, result, success)
-    database:sadd(bot_id.."Tshake:Sudo:Usr", result.sender_user_id_)
-    Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم ترقيته مطور مميز في البوت")  
-    end
-    tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
-    return false 
-    end
-    if text and text:match("^رفع مطور مميز @(.*)$") and DevTshake(msg) then
-    local username = text:match("^رفع مطور مميز @(.*)$")
-    function Function_Tshake(extra, result, success)
-    if result.id_ then
-    if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-    send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
-    return false 
-    end      
-    database:sadd(bot_id.."Tshake:Sudo:Usr", result.id_)
-    Reply_Status(msg,result.id_,"reply","💢┇تم ترقيته مطور مميز في البوت")  
-    else
-    send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهذا المعرف")
-    end
-    end
-    tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
-    return false 
-    end
-    if text and text:match("^رفع مطور مميز (%d+)$") and DevTshake(msg) then
-    local userid = text:match("^رفع مطور مميز (%d+)$")
-    database:sadd(bot_id.."Tshake:Sudo:Usr", userid)
-    Reply_Status(msg,userid,"reply","💢┇تم ترقيته مطور مميز في البوت")  
-    return false 
-    end
-    if text == ("تنزيل مطور مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) then
-    function Function_Tshake(extra, result, success)
-    database:srem(bot_id.."Tshake:Sudo:Usr", result.sender_user_id_)
-    Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم تنزيله من المطورين المميزين")  
-    end
-    tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
-    return false 
-    end
-    if text and text:match("^تنزيل مطور مميز @(.*)$") and DevTshake(msg) then
-    local username = text:match("^تنزيل مطور مميز @(.*)$")
-    function Function_Tshake(extra, result, success)
-    if result.id_ then
-    database:srem(bot_id.."Tshake:Sudo:Usr", result.id_)
-    Reply_Status(msg,result.id_,"reply","💢┇تم تنزيله من المطورين المميزين")  
-    else
-    send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهذا المعرف")
-    end
-    end
-    tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
-    return false
-    end  
-    if text and text:match("^تنزيل مطور مميز (%d+)$") and DevTshake(msg) then
-    local userid = text:match("^تنزيل مطور مميز (%d+)$")
-    database:srem(bot_id.."Tshake:Sudo:Usr", userid)
-    Reply_Status(msg,userid,"reply","💢┇تم تنزيله من المطورين المميزين")  
-    return false 
-    end
-    
-if text == ("اضف مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) or DevHarley(msg) then
+
+if text == ("اضف مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) then
 function Function_Tshake(extra, result, success)
 database:sadd(bot_id.."Tshake:Sudo:User", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم ترقيته مطور في البوت")  
@@ -2240,7 +2170,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
 return false 
 end
-if text and text:match("^اضف مطور @(.*)$") and DevTshake(msg) or DevHarley(msg) then
+if text and text:match("^اضف مطور @(.*)$") and DevTshake(msg) then
 local username = text:match("^اضف مطور @(.*)$")
 function Function_Tshake(extra, result, success)
 if result.id_ then
@@ -2257,13 +2187,13 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
 return false 
 end
-if text and text:match("^اضف مطور (%d+)$") and DevTshake(msg) or DevHarley(msg) then
+if text and text:match("^اضف مطور (%d+)$") and DevTshake(msg) then
 local userid = text:match("^اضف مطور (%d+)$")
 database:sadd(bot_id.."Tshake:Sudo:User", userid)
 Reply_Status(msg,userid,"reply","💢┇تم ترقيته مطور في البوت")  
 return false 
 end
-if text == ("حذف مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) or DevHarley(msg) then
+if text == ("حذف مطور") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) then
 function Function_Tshake(extra, result, success)
 database:srem(bot_id.."Tshake:Sudo:User", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم تنزيله من المطورين")  
@@ -2271,7 +2201,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
 return false 
 end
-if text and text:match("^حذف مطور @(.*)$") and DevTshake(msg) or DevHarley(msg) then
+if text and text:match("^حذف مطور @(.*)$") and DevTshake(msg) then
 local username = text:match("^حذف مطور @(.*)$")
 function Function_Tshake(extra, result, success)
 if result.id_ then
@@ -2284,7 +2214,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
 return false
 end  
-if text and text:match("^حذف مطور (%d+)$") and DevTshake(msg) or DevHarley(msg) then
+if text and text:match("^حذف مطور (%d+)$") and DevTshake(msg) then
 local userid = text:match("^حذف مطور (%d+)$")
 database:srem(bot_id.."Tshake:Sudo:User", userid)
 Reply_Status(msg,userid,"reply","💢┇تم تنزيله من المطورين")  
@@ -4014,7 +3944,7 @@ end
 end
 end
 ------------------------------------------------------------------------
-if text == ("مسح ردود المطور") and DevTshake(msg) or DevHarley(msg) then 
+if text == ("مسح ردود المطور") and DevTshake(msg) then 
 local list = database:smembers(bot_id.."Tshake:List:Rd:Sudo")
 for k,v in pairs(list) do
 database:del(bot_id.."Tshake:Add:Rd:Sudo:Gif"..v)   
@@ -4029,7 +3959,7 @@ database:del(bot_id.."Tshake:List:Rd:Sudo")
 end
 send(msg.chat_id_, msg.id_,"📌┇تم مسح ردود المطور")
 end
-if text == ("ردود المطور") and DevTshake(msg) or DevHarley(msg) then 
+if text == ("ردود المطور") and DevTshake(msg) then 
 local list = database:smembers(bot_id.."Tshake:List:Rd:Sudo")
 text = "\n⛔┇قائمة ردود المطور \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
 for k,v in pairs(list) do
@@ -4106,12 +4036,12 @@ return false
 end  
 end
 
-if text == "اضف رد للكل" and DevTshake(msg) or DevHarley(msg) then 
+if text == "اضف رد للكل" and DevTshake(msg) then 
 send(msg.chat_id_, msg.id_,"📥┇ ارسل الكلمه التري تريد اضافتها")
 database:set(bot_id.."Tshake:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
 end
-if text == "حذف رد للكل" and DevTshake(msg) or DevHarley(msg) then 
+if text == "حذف رد للكل" and DevTshake(msg) then 
 send(msg.chat_id_, msg.id_,"📫┇ ارسل الكلمه التري تريد حذفها")
 database:set(bot_id.."Tshake:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return false 
@@ -4375,7 +4305,7 @@ if text and text:match("^رفع القيود @(.*)") and Owner(msg) then
 local username = text:match("^رفع القيود @(.*)") 
 function Function_Tshake(extra, result, success)
 if result.id_ then
-if DevTshake(msg) or DevHarley(msg) then
+if DevTshake(msg) then
 database:srem(bot_id.."Tshake:GBan:User",result.id_)
 database:srem(bot_id.."Tshake:Ban:User"..msg.chat_id_,result.id_)
 database:srem(bot_id.."Tshake:Muted:User"..msg.chat_id_,result.id_)
@@ -4397,7 +4327,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake,
 end
 if text == "رفع القيود" and Owner(msg) then
 function Function_Tshake(extra, result, success)
-if DevTshake(msg) or DevHarley(msg) then
+if DevTshake(msg) then
 database:srem(bot_id.."Tshake:GBan:User",result.sender_user_id_)
 database:srem(bot_id.."Tshake:Ban:User"..msg.chat_id_,result.sender_user_id_)
 database:srem(bot_id.."Tshake:Muted:User"..msg.chat_id_,result.sender_user_id_)
@@ -4561,12 +4491,12 @@ database:srem(bot_id.."Tshake:Chek:Groups",GP_ID[2])
 return false 
 end
 end
-if text == "تفعيل المغادره" and DevTshake(msg) or DevHarley(msg) then   
+if text == "تفعيل المغادره" and DevTshake(msg) then   
 database:del(bot_id.."Tshake:Left:Bot"..msg.chat_id_)  
 send(msg.chat_id_, msg.id_,"📫┇تم تفعيل مغادرة البوت") 
 return false 
 end
-if text == "تعطيل المغادره" and DevTshake(msg) or DevHarley(msg) then  
+if text == "تعطيل المغادره" and DevTshake(msg) then  
 database:set(bot_id.."Tshake:Left:Bot"..msg.chat_id_,true)   
 send(msg.chat_id_, msg.id_, "📫┇تم تعطيل مغادرة البوت") 
 return false 
@@ -4595,7 +4525,7 @@ Namebot = (database:get(bot_id.."Tshake:Name:Bot") or "هارلي")
 send(msg.chat_id_, msg.id_,"اسمي القميل ["..Namebot.."] ") 
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" then 
-if DevTshake(msg) or DevHarley(msg) then
+if DevTshake(msg) then
 database:setex(bot_id.."Tshake:Set:Name:Bot"..msg.sender_user_id_,300,true) 
 send(msg.chat_id_, msg.id_,"📫┇ ارسل لي الاسم الان ")  
 end
@@ -4618,7 +4548,7 @@ end
 tdcli_function({ID="GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersKicked"},offset_ = 0,limit_ = 200}, delbans, {chat_id_ = msg.chat_id_, msg_id_ = msg.id_})    
 end
 if text=="اذاعه خاص" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
-if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) or DevHarley(msg) then 
+if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) then 
 send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -4627,7 +4557,7 @@ send(msg.chat_id_, msg.id_,"🔘┇ارسل لي سواء ~ { ملصق, متحر
 return false
 end 
 if text=="اذاعه" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
-if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) or DevHarley(msg) then 
+if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) then 
 send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -4636,7 +4566,7 @@ send(msg.chat_id_, msg.id_,"🔘┇ارسل لي سواء ~ { ملصق, متحر
 return false
 end  
 if text=="اذاعه بالتثبيت" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
-if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) or DevHarley(msg) then 
+if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) then 
 send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -4645,7 +4575,7 @@ send(msg.chat_id_, msg.id_,"🔘┇ارسل لي سواء ~ { ملصق, متحر
 return false
 end  
 if text=="اذاعه بالتوجيه" and msg.reply_to_message_id_ == 0  and DevBot(msg) then 
-if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) or DevHarley(msg) then 
+if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) then 
 send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -4654,7 +4584,7 @@ send(msg.chat_id_, msg.id_,"📥┇ارسل لي التوجيه الان")
 return false
 end 
 if text=="اذاعه بالتوجيه خاص" and msg.reply_to_message_id_ == 0  and DevBot(msg) then 
-if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) or DevHarley(msg) then 
+if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) then 
 send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -4663,12 +4593,12 @@ send(msg.chat_id_, msg.id_,"📥┇ارسل لي التوجيه الان")
 return false
 end 
 
-if text == "تفعيل الاذاعه" and DevTshake(msg) or DevHarley(msg) then  
+if text == "تفعيل الاذاعه" and DevTshake(msg) then  
 database:del(bot_id.."Tshake:Status:Bc") 
 send(msg.chat_id_, msg.id_,"\n📫┇تم تفعيل الاذاعه " ) 
 return false
 end 
-if text == "تعطيل الاذاعه" and DevTshake(msg) or DevHarley(msg) then  
+if text == "تعطيل الاذاعه" and DevTshake(msg) then  
 database:set(bot_id.."Tshake:Status:Bc",true) 
 send(msg.chat_id_, msg.id_,"\n📫┇تم تعطيل الاذاعه") 
 return false
@@ -5716,7 +5646,7 @@ tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(ms
 return false
 end
 
-if text == "تنظيف المشتركين" and DevTshake(msg) or DevHarley(msg) then
+if text == "تنظيف المشتركين" and DevTshake(msg) then
 local pv = database:smembers(bot_id..'Tshake:UsersBot')  
 local sendok = 0
 for i = 1, #pv do
@@ -5742,7 +5672,7 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف الكروبات" and DevTshake(msg) or DevHarley(msg) then
+if text == "تنظيف الكروبات" and DevTshake(msg) then
 local group = database:smembers(bot_id..'Tshake:Chek:Groups')  
 local w = 0
 local q = 0
@@ -5791,7 +5721,7 @@ end,nil)
 end
 return false
 end
-if text == ("تحديث السورس") and DevTshake(msg) or DevHarley(msg) then  
+if text == ("تحديث السورس") and DevTshake(msg) then  
 send(msg.chat_id_,msg.id_,'☑┇تم التحديث')
 os.execute('rm -rf Harley.lua')
 os.execute('rm -rf start.lua')
@@ -5802,15 +5732,15 @@ return false
 end
 
 
-if text == 'تفعيل البوت الخدمي' and DevTshake(msg) or DevHarley(msg) then  
+if text == 'تفعيل البوت الخدمي' and DevTshake(msg) then  
 database:del(bot_id..'Tshake:Free:Add:Bots') 
 send(msg.chat_id_, msg.id_,'☑┇تم تفعيل البوت الخدمي ') 
 end
-if text == 'تعطيل البوت الخدمي' and DevTshake(msg) or DevHarley(msg) then  
+if text == 'تعطيل البوت الخدمي' and DevTshake(msg) then  
 database:set(bot_id..'Tshake:Free:Add:Bots',true) 
 send(msg.chat_id_, msg.id_,'☑┇تم تعطيل البوت الخدمي') 
 end
-if text and text:match("^تعين عدد الاعضاء (%d+)$") and DevTshake(msg) or DevHarley(msg) then
+if text and text:match("^تعين عدد الاعضاء (%d+)$") and DevTshake(msg) then
 local Num = text:match("تعين عدد الاعضاء (%d+)$") 
 database:set(bot_id..'Tshake:Num:Add:Bot',Num) 
 send(msg.chat_id_, msg.id_,'👥┇ تم وضع عدد الاعضاء *~'..Num..'* عضو')
@@ -5820,7 +5750,7 @@ local Groups = database:scard(bot_id..'Tshake:Chek:Groups')
 local Users = database:scard(bot_id..'Tshake:UsersBot')  
 send(msg.chat_id_, msg.id_,'🔘┇احصائيات البوت \n\n👥┇عدد المجموعات *~ '..Groups..'\n👤┇عدد المشتركين ~ '..Users..'*')
 end
-if text == 'جلب نسخه احتياطيه' and DevTshake(msg) or DevHarley(msg) then
+if text == 'جلب نسخه احتياطيه' and DevTshake(msg) then
 local list = database:smembers(bot_id..'Tshake:Chek:Groups')  
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
@@ -5898,7 +5828,7 @@ sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
 end,nil)
 end
 end
-if text == 'الملفات' and DevTshake(msg) or DevHarley(msg) then
+if text == 'الملفات' and DevTshake(msg) then
 t = '☑┇جميع الملفات : \n ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n'
 i = 0
 for v in io.popen('ls Tshake_Files'):lines() do
@@ -5910,7 +5840,7 @@ end
 send(msg.chat_id_, msg.id_,t)
 end
 if text == "متجر الملفات" or text == 'المتجر' then
-if DevTshake(msg) or DevHarley(msg) then
+if DevTshake(msg) then
 local Get_Files, res = https.request("https://raw.githubusercontent.com/MdHaRleY/t/master/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
@@ -5939,7 +5869,7 @@ return false
 end
 end
 
-if text and text:match("^(تعطيل ملف) (.*)(.lua)$") and DevTshake(msg) or DevHarley(msg) then
+if text and text:match("^(تعطيل ملف) (.*)(.lua)$") and DevTshake(msg) then
 local name_t = {string.match(text, "^(تعطيل ملف) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
 local file_bot = io.open("Tshake_Files/"..file,"r")
@@ -5959,7 +5889,7 @@ send(msg.chat_id_, msg.id_,"*📮┇ عذرا لا يوجد هاكذا ملف ف
 end
 return false
 end
-if text and text:match("^(تفعيل ملف) (.*)(.lua)$") and DevTshake(msg) or DevHarley(msg) then
+if text and text:match("^(تفعيل ملف) (.*)(.lua)$") and DevTshake(msg) then
 local name_t = {string.match(text, "^(تفعيل ملف) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
 local file_bot = io.open("Tshake_Files/"..file,"r")
@@ -5981,12 +5911,12 @@ send(msg.chat_id_, msg.id_,"*📮┇ عذرا لا يوجد هاكذا ملف ف
 end
 return false
 end
-if text == "مسح جميع الملفات" and DevTshake(msg) or DevHarley(msg) then
+if text == "مسح جميع الملفات" and DevTshake(msg) then
 os.execute("rm -fr Tshake_Files/*")
 send(msg.chat_id_,msg.id_,"☑┇تم حذف جميع الملفات")
 return false
 end
-if text == 'نقل الاحصائيات' and DevTshake(msg) or DevHarley(msg) then
+if text == 'نقل الاحصائيات' and DevTshake(msg) then
 local Users = database:smembers('tshake:'..bot_id.."userss")
 local Groups = database:smembers('tshake:'..bot_id..'groups') 
 for i = 1, #Groups do
@@ -6018,11 +5948,11 @@ database:sadd(bot_id..'Tshake:UsersBot',Users[i])
 end
 send(msg.chat_id_, msg.id_,'👥┇تم نقل : '..#Groups..' كروب\n👤┇تم نقل : '..#Users..' مشترك \n🔘┇من التحديث القديم الى التحديث الجديد')
 end
-if text == 'حذف كليشه المطور' and DevTshake(msg) or DevHarley(msg) then
+if text == 'حذف كليشه المطور' and DevTshake(msg) then
 database:del(bot_id..'Tshake:Text_Dev')
 send(msg.chat_id_, msg.id_,'☑┇ تم حذف كليشه المطور')
 end
-if text == 'وضع كليشه المطور' and DevTshake(msg) or DevHarley(msg) then
+if text == 'وضع كليشه المطور' and DevTshake(msg) then
 database:set(bot_id..'Tshake:Set:Text_Dev'..msg.chat_id_..':'..msg.sender_user_id_,true)
 send(msg.chat_id_,msg.id_,'📫┇ ارسل الكليشه الان')
 return false
@@ -6038,7 +5968,7 @@ database:del(bot_id..'Tshake:Set:Text_Dev'..msg.chat_id_..':'..msg.sender_user_i
 send(msg.chat_id_,msg.id_,'🔰┇تم حفظ كليشة المطور')
 return false
 end
-if text == 'رفع النسخه الاحتياطيه' and DevTshake(msg) or DevHarley(msg) then   
+if text == 'رفع النسخه الاحتياطيه' and DevTshake(msg) then   
 if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
 if result.content_.document_ then 
@@ -6050,7 +5980,7 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text == "تحديث" and DevTshake(msg) or DevHarley(msg) then
+if text == "تحديث" and DevTshake(msg) then
 dofile("Harley.lua")  
 send(msg.chat_id_, msg.id_, "☑┇تم التحديث")
 end
@@ -6314,7 +6244,7 @@ send(msg.chat_id_, msg.id_,'🚸┇البوت ليس ادمن يرجى ترقي�
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
-if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Tshake:Num:Add:Bot') or 0) and not DevTshake(msg) or DevHarley(msg) then
+if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Tshake:Num:Add:Bot') or 0) and not DevTshake(msg) then
 send(msg.chat_id_, msg.id_,'👥┇عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Tshake:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
@@ -6347,7 +6277,7 @@ Text = '🔖┇تم تفعيل مجموعه جديده\n'..
 '\n👥┇عدد اعضاء المجموعه *~ '..NumMember..'*'..
 '\n📬┇اسم المجموعه ~ ['..NameChat..']'..
 '\n📥┇الرابط ~ ['..LinkGp..']'
-if not DevTshake(msg) or DevHarley(msg) then
+if not DevTshake(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
 end
@@ -6392,7 +6322,7 @@ Text = '🔖┇تم تعطيل مجموعه جديده\n'..
 '\n🔧┇ايدي المجموعه ~ `'..IdChat..'`'..
 '\n📥┇اسم المجموعه ~ ['..NameChat..']'..
 '\n📮┇الرابط ~ ['..LinkGp..']'
-if not DevTshake(msg) or DevHarley(msg) then
+if not DevTshake(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
 end
@@ -6426,7 +6356,7 @@ end
 if database:sismember(bot_id..'Tshake:Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,'📮┇المجموعه مفعله سابقا ')
 else
-if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Tshake:Num:Add:Bot') or 0) and not DevTshake(msg) or DevHarley(msg) then
+if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Tshake:Num:Add:Bot') or 0) and not DevTshake(msg) then
 send(msg.chat_id_, msg.id_,'👥┇عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Tshake:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
@@ -6457,7 +6387,7 @@ Text = '🔖┇تم تفعيل مجموعه جديده\n'..
 '\n👥┇عدد اعضاء المجموعه *~ '..NumMember..'*'..
 '\n📬┇اسم المجموعه ~ ['..NameChat..']'..
 '\n📥┇الرابط ~ ['..LinkGp..']'
-if not DevTshake(msg) or DevHarley(msg) then
+if not DevTshake(msg) then
 sendText(Id_Sudo,Text,0,'md')
 end
 end
@@ -6471,7 +6401,7 @@ end
 
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
-if DevTshake(msg) or DevHarley(msg) then
+if DevTshake(msg) then
 local Text = '📥┇مرحبا بك في اوامر المطور الجاهزه'
 local keyboard = {
 {'الاحصائيات 📊'},
@@ -6503,7 +6433,7 @@ end
 database:setex(bot_id..'Tshake:Start:Time'..msg.sender_user_id_,60,true)
 return false
 end
-if not DevTshake(msg) or DevHarley(msg) and not database:sismember(bot_id..'BaN:In:User',msg.sender_user_id_) and not database:get(bot_id..'Texting:In:Bv') then
+if not DevTshake(msg) and not database:sismember(bot_id..'BaN:In:User',msg.sender_user_id_) and not database:get(bot_id..'Texting:In:Bv') then
 send(msg.sender_user_id_,msg.id_,'📧┇تمت ارسال رسالتك الى ~ ['..UserName..']')    
 tdcli_function({ID ="GetChat",chat_id_=Id_Sudo},function(arg,chat)  
 tdcli_function({ID ="GetChat",chat_id_=msg.sender_user_id_},function(arg,chat)  
@@ -6514,7 +6444,7 @@ if data and data.messages_ and data.messages_[0].content_.sticker_ then
 sendText(Id_Sudo,'👤┇تم ارسال الملصق من ~ ['..string.sub(ta.first_name_,0, 40)..'](tg://user?id='..ta.id_..')',0,'md') 
 return false
 end;end;end,nil);end,nil);end,nil);end,nil);end
-if DevTshake(msg) or DevHarley(msg) and msg.reply_to_message_id_ ~= 0  then    
+if DevTshake(msg) and msg.reply_to_message_id_ ~= 0  then    
 tdcli_function({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)},function(extra, result, success) 
 if result.forward_info_.sender_user_id_ then     
 id_user = result.forward_info_.sender_user_id_    
@@ -6554,7 +6484,7 @@ Text = '📨┇تمت ارسال البصمه اليه .. '
 end     
 sendText(Id_Sudo,Text..'\n'..'👤┇ ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
-if DevTshake(msg) or DevHarley(msg) then
+if DevTshake(msg) then
 if text == 'تفعيل التواصل ⚡' then  
 database:del(bot_id..'Texting:In:Bv') 
 send(msg.chat_id_, msg.id_,'🔘┇ تم تفعيل التواصل ') 
@@ -6652,7 +6582,7 @@ database:set(bot_id..'Tshake:Free:Add:Bots',true)
 send(msg.chat_id_, msg.id_,'\n📫┇تم تعطيل البوت الخدمي') 
 end
 if text=="اذاعه خاص 📡" and msg.reply_to_message_id_ == 0 then
-if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) or DevHarley(msg) then 
+if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) then 
 send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -6661,7 +6591,7 @@ send(msg.chat_id_, msg.id_,"🔘┇ارسل لي سواء ~ { ملصق, متحر
 return false
 end 
 if text=="اذاعه 📡" and msg.reply_to_message_id_ == 0 then
-if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) or DevHarley(msg) then 
+if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) then 
 send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -6670,7 +6600,7 @@ send(msg.chat_id_, msg.id_,"🔘┇ارسل لي سواء ~ { ملصق, متحر
 return false
 end  
 if text=="اذاعه بالتوجيه 👥" and msg.reply_to_message_id_ == 0  then
-if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) or DevHarley(msg) then 
+if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) then 
 send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -6679,7 +6609,7 @@ send(msg.chat_id_, msg.id_,"📥┇ارسل لي التوجيه الان")
 return false
 end 
 if text=="اذاعه بالتوجيه خاص 👤" and msg.reply_to_message_id_ == 0  then
-if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) or DevHarley(msg) then 
+if database:get(bot_id.."Tshake:Status:Bc") and not DevTshake(msg) then 
 send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
@@ -6727,16 +6657,16 @@ if text == 'حذف كليشه ستارت 🃏' then
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,'🔘┇تم حذف كليشه ستارت') 
 end
-if text == ("مسح قائمه العام 📮") and DevTshake(msg) or DevHarley(msg) then
+if text == ("مسح قائمه العام 📮") and DevTshake(msg) then
 database:del(bot_id.."Tshake:GBan:User")
 send(msg.chat_id_, msg.id_, "\n📮┇تم مسح قائمه العام")
 return false
 end
-if text == ("مسح المطورين 🚸") and DevTshake(msg) or DevHarley(msg) then
+if text == ("مسح المطورين 🚸") and DevTshake(msg) then
 database:del(bot_id.."Tshake:Sudo:User")
 send(msg.chat_id_, msg.id_, "\n📮┇ تم مسح قائمة المطورين  ")
 end
-if text == ("قائمه العام 🚷") and DevTshake(msg) or DevHarley(msg) then
+if text == ("قائمه العام 🚷") and DevTshake(msg) then
 local list = database:smembers(bot_id.."Tshake:GBan:User")
 t = "\n⛔┇قائمة المحظورين عام \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
 for k,v in pairs(list) do
@@ -6753,7 +6683,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("المطورين 🔱") and DevTshake(msg) or DevHarley(msg) then
+if text == ("المطورين 🔱") and DevTshake(msg) then
 local list = database:smembers(bot_id.."Tshake:Sudo:User")
 t = "\n⛔┇قائمة مطورين البوت \n┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ \n"
 for k,v in pairs(list) do
