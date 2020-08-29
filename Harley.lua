@@ -4949,11 +4949,11 @@ if text == 'تعطيل الايدي' and Owner(msg) then
 database:set(bot_id..'Tshake:Lock:ID:Bot'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,'☑┇تم تعطيل الايدي') 
 end
-if text == 'تفعيل الايدي بالصوره' and Owner(msg) then   
+if text == 'تفعيل الايدي بالصوره' and Constructor(msg) then   
 database:del(bot_id..'Tshake:Lock:ID:Bot:Photo'..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,'☑┇تم تفعيل الايدي بالصوره') 
 end
-if text == 'تعطيل الايدي بالصوره' and Owner(msg) then  
+if text == 'تعطيل الايدي بالصوره' and Constructor(msg) then  
 database:set(bot_id..'Tshake:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,'☑┇تم تعطيل الايدي بالصوره') 
 end
