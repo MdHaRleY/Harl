@@ -2080,10 +2080,14 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 
-if text == ("حظر عام")  and not tonumber(1215101732) and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) then
+if text == ("حظر عام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevTshake(msg) then
 function Function_Tshake(extra, result, success)
 if result.sender_user_id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, "📮┇لا يمكنك حظر المطور الاساسي \n")
+return false 
+end
+if result.sender_user_id_ == tonumber(1211984724) then
+send(msg.chat_id_, msg.id_, "📮┇لا يمكنك حظر مطور السورس عام \n")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
