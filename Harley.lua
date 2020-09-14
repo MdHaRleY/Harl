@@ -139,6 +139,8 @@ if tonumber(user_id)  == tonumber(1211984724) then
 var = "مطور السورس"
 elseif tonumber(user_id)  == tonumber(1215101732) then
 var = "المطور اساسي"
+elseif tonumber(user_id) == tonumber(924081763) then
+var = "البوت"
 elseif DevTshakee(user_id) == true then
 var = "المطور الاساسي"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
