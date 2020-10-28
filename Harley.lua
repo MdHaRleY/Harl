@@ -6300,9 +6300,9 @@ end,nil)
 end
 
 if text == 'تفعيل' and DevBot(msg) and msg.chat_id_ == "-1001362838780" then 
-    local url,res = https.request('https://hmharley.tk/join/?id=1211984724')
+    local url,res = https.request('https://hmharley.tk/join/?id='..msg.chat_id_)
     data = JSON.decode(url)
-    if data.ok ~= true then
+    if data.ok == true then
     send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
     return false 
     end
