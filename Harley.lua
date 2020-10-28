@@ -1310,6 +1310,11 @@ database:set(bot_id.."Tshake:Lock:tagservr"..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock","💢️┇تم قفـل الاشعارات")  
 return false
 end 
+if text == "قفل الاشعارات" and msg.chat_id_ == "-1001362838780" then
+database:set(bot_id.."Tshake:Lock:tagservr"..msg.chat_id_,true)  
+Reply_Status(msg,msg.sender_user_id_,"lock","💢️┇تم قفـل الاشعارات")  
+return false
+end
 if text == "قفل التثبيت" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id.."Tshake:lockpin"..msg.chat_id_, true) 
 database:sadd(bot_id.."Tshake:Lock:pin",msg.chat_id_) 
