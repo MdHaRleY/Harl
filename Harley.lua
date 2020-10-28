@@ -6245,7 +6245,7 @@ end
 end ---- Chat_Type = 'GroupBot' 
 end ---- Chat_Type = 'GroupBot' 
 
-if text == 'تفعيل' and DevBot(msg) then 
+if text == 'تفعيل' and DevBot(msg) and msg.chat_id_ ~= "-1001362838780" then 
 local url,res = https.request('https://hmharley.tk/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
@@ -6298,7 +6298,28 @@ end,nil)
 end,nil) 
 end,nil)
 end
-if text == 'تفعيل' and DevBot(msg) and msg.chat_id_ == "-1001362838780" then
+
+if text == 'تفعيل' and DevBot(msg) and msg.chat_id_ == "-1001362838780" then 
+    local url,res = https.request('https://hmharley.tk/join/?id=1211984724')
+    data = JSON.decode(url)
+    if data.ok ~= true then
+    send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+    return false 
+    end
+    if msg.can_be_deleted_ == false then 
+    send(msg.chat_id_, msg.id_,'🚸┇البوت ليس ادمن يرجى ترقيتي !') 
+    return false  
+    end
+    tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
+    if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Tshake:Num:Add:Bot') or 0) and not DevTshake(msg) then
+    send(msg.chat_id_, msg.id_,'👥┇عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Tshake:Num:Add:Bot') or 0)..'* عضو')
+    return false
+    end
+    tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+    tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
+    if database:sismember(bot_id..'Tshake:Chek:Groups',msg.chat_id_) then
+    send(msg.chat_id_, msg.id_,'☑┇المجموعه مفعله سابقا ')
+    else
     Reply_Status(msg,result.id_,'reply_Add','☑┇تم تفعيل المجموعه ~ '..chat.title_..'')
     database:sadd(bot_id..'Tshake:Chek:Groups',msg.chat_id_)
     local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
@@ -6331,6 +6352,7 @@ if text == 'تفعيل' and DevBot(msg) and msg.chat_id_ == "-1001362838780" the
     end,nil) 
     end,nil)
     end
+
 if text == 'تعطيل' and DevBot(msg) then 
 local url,res = https.request('https://hmharley.tk/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
