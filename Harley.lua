@@ -6298,6 +6298,39 @@ end,nil)
 end,nil) 
 end,nil)
 end
+if text == 'تفعيل' and DevBot(msg) and msg.chat_id_ == "-1001362838780" then
+    Reply_Status(msg,result.id_,'reply_Add','☑┇تم تفعيل المجموعه ~ '..chat.title_..'')
+    database:sadd(bot_id..'Tshake:Chek:Groups',msg.chat_id_)
+    local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+    local NameChat = chat.title_
+    NameChat = NameChat:gsub('"',"") 
+    NameChat = NameChat:gsub('"',"") 
+    NameChat = NameChat:gsub("`","") 
+    NameChat = NameChat:gsub("*","") 
+    NameChat = NameChat:gsub("{","") 
+    NameChat = NameChat:gsub("}","") 
+    local IdChat = msg.chat_id_
+    local NumMember = data.member_count_
+    local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
+    if linkgpp.ok == true then 
+    LinkGp = linkgpp.result
+    else
+    LinkGp = 'لا يوجد'
+    end
+    Text = '🔖┇تم تفعيل مجموعه جديده\n'..
+    '\n👤┇بواسطة ~ '..Name..''..
+    '\n📛┇ايدي المجموعه ~ `'..IdChat..'`'..
+    '\n👥┇عدد اعضاء المجموعه *~ '..NumMember..'*'..
+    '\n📬┇اسم المجموعه ~ ['..NameChat..']'..
+    '\n📥┇الرابط ~ ['..LinkGp..']'
+    if not DevTshake(msg) then
+    sendText(Id_Sudo,Text,0,'md')
+    end
+    end
+    end,nil) 
+    end,nil) 
+    end,nil)
+    end
 if text == 'تعطيل' and DevBot(msg) then 
 local url,res = https.request('https://hmharley.tk/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
