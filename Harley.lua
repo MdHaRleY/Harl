@@ -1310,11 +1310,6 @@ database:set(bot_id.."Tshake:Lock:tagservr"..msg.chat_id_,true)
 Reply_Status(msg,msg.sender_user_id_,"lock","💢️┇تم قفـل الاشعارات")  
 return false
 end 
-if text == "قفل الاشعارات" and msg.chat_id_ == "-1001362838780" then
-database:set(bot_id.."Tshake:Lock:tagservr"..msg.chat_id_,true)  
-Reply_Status(msg,msg.sender_user_id_,"lock","💢️┇تم قفـل الاشعارات")  
-return false
-end
 if text == "قفل التثبيت" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id.."Tshake:lockpin"..msg.chat_id_, true) 
 database:sadd(bot_id.."Tshake:Lock:pin",msg.chat_id_) 
@@ -6245,7 +6240,7 @@ end
 end ---- Chat_Type = 'GroupBot' 
 end ---- Chat_Type = 'GroupBot' 
 
-if text == 'تفعيل' and DevBot(msg) and msg.chat_id_ ~= "-1001362838780" then 
+if text == 'تفعيل' and DevBot(msg) then 
 local url,res = https.request('https://hmharley.tk/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
@@ -6298,60 +6293,6 @@ end,nil)
 end,nil) 
 end,nil)
 end
-
-if text == 'تفعيل' and DevBot(msg) and msg.chat_id_ == "-1001362838780" then 
-    local url,res = https.request('https://hmharley.tk/join/?id='..msg.chat_id_)
-    data = JSON.decode(url)
-    if data.ok == true then
-    send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
-    return false 
-    end
-    if msg.can_be_deleted_ == false then 
-    send(msg.chat_id_, msg.id_,'🚸┇البوت ليس ادمن يرجى ترقيتي !') 
-    return false  
-    end
-    tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
-    if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Tshake:Num:Add:Bot') or 0) and not DevTshake(msg) then
-    send(msg.chat_id_, msg.id_,'👥┇عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Tshake:Num:Add:Bot') or 0)..'* عضو')
-    return false
-    end
-    tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
-    tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
-    if database:sismember(bot_id..'Tshake:Chek:Groups',msg.chat_id_) then
-    send(msg.chat_id_, msg.id_,'☑┇المجموعه مفعله سابقا ')
-    else
-    Reply_Status(msg,result.id_,'reply_Add','☑┇تم تفعيل المجموعه ~ '..chat.title_..'')
-    database:sadd(bot_id..'Tshake:Chek:Groups',msg.chat_id_)
-    local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-    local NameChat = chat.title_
-    NameChat = NameChat:gsub('"',"") 
-    NameChat = NameChat:gsub('"',"") 
-    NameChat = NameChat:gsub("`","") 
-    NameChat = NameChat:gsub("*","") 
-    NameChat = NameChat:gsub("{","") 
-    NameChat = NameChat:gsub("}","") 
-    local IdChat = msg.chat_id_
-    local NumMember = data.member_count_
-    local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
-    if linkgpp.ok == true then 
-    LinkGp = linkgpp.result
-    else
-    LinkGp = 'لا يوجد'
-    end
-    Text = '🔖┇تم تفعيل مجموعه جديده\n'..
-    '\n👤┇بواسطة ~ '..Name..''..
-    '\n📛┇ايدي المجموعه ~ `'..IdChat..'`'..
-    '\n👥┇عدد اعضاء المجموعه *~ '..NumMember..'*'..
-    '\n📬┇اسم المجموعه ~ ['..NameChat..']'..
-    '\n📥┇الرابط ~ ['..LinkGp..']'
-    if not DevTshake(msg) then
-    sendText(Id_Sudo,Text,0,'md')
-    end
-    end
-    end,nil) 
-    end,nil) 
-    end,nil)
-    end
 
 if text == 'تعطيل' and DevBot(msg) then 
 local url,res = https.request('https://hmharley.tk/join/?id='..msg.sender_user_id_)
