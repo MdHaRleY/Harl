@@ -2233,7 +2233,7 @@ if text == ("رفع منشئ اساسي") and tonumber(msg.reply_to_message_id_)
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 function Function_Tshake(extra, result, success)
@@ -2247,7 +2247,7 @@ if text and text:match("^رفع منشئ اساسي @(.*)$") and DevBot(msg) the
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local username = text:match("^رفع منشئ اساسي @(.*)$")
@@ -2270,7 +2270,7 @@ if text and text:match("^رفع منشئ اساسي (%d+)$") and DevBot(msg) the
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local userid = text:match("^رفع منشئ اساسي (%d+)$") 
@@ -2282,7 +2282,7 @@ if text == ("تنزيل منشئ اساسي") and tonumber(msg.reply_to_message_
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 function Function_Tshake(extra, result, success)
@@ -2296,7 +2296,7 @@ if text and text:match("^تنزيل منشئ اساسي @(.*)$") and DevBot(msg)
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local username = text:match("^تنزيل منشئ اساسي @(.*)$")
@@ -2316,7 +2316,7 @@ if text and text:match("^تنزيل منشئ اساسي (%d+)$") and DevBot(msg)
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local userid = text:match("^تنزيل منشئ اساسي (%d+)$") 
@@ -2329,7 +2329,7 @@ if text == "رفع منشئ" and tonumber(msg.reply_to_message_id_) ~= 0 and Bas
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 function Function_Tshake(extra, result, success)
@@ -2342,7 +2342,7 @@ if text and text:match("^رفع منشئ @(.*)$") and BasicConstructor(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local username = text:match("^رفع منشئ @(.*)$")
@@ -2365,7 +2365,7 @@ if text and text:match("^رفع منشئ (%d+)$") and BasicConstructor(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local userid = text:match("^رفع منشئ (%d+)$")
@@ -2384,7 +2384,7 @@ if text and text:match("^تنزيل منشئ @(.*)$") and BasicConstructor(msg) 
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local username = text:match("^تنزيل منشئ @(.*)$")
@@ -2403,7 +2403,7 @@ if text and text:match("^تنزيل منشئ (%d+)$") and BasicConstructor(msg) 
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local userid = text:match("^تنزيل منشئ (%d+)$")
@@ -2415,7 +2415,7 @@ if text == ("رفع مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and C
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 function Function_Tshake(extra, result, success)
@@ -2429,7 +2429,7 @@ if text and text:match("^رفع مدير @(.*)$") and Constructor(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local username = text:match("^رفع مدير @(.*)$") 
@@ -2453,7 +2453,7 @@ if text and text:match("^رفع مدير (%d+)$") and Constructor(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local userid = text:match("^رفع مدير (%d+)$") 
@@ -2465,7 +2465,7 @@ if text == ("تنزيل مدير") and tonumber(msg.reply_to_message_id_) ~= 0 a
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 function Function_Tshake(extra, result, success)
@@ -2479,7 +2479,7 @@ if text and text:match("^تنزيل مدير @(.*)$") and Constructor(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local username = text:match("^تنزيل مدير @(.*)$")
@@ -2498,7 +2498,7 @@ if text and text:match("^تنزيل مدير (%d+)$") and Constructor(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local userid = text:match("^تنزيل مدير (%d+)$") 
@@ -2511,7 +2511,7 @@ if text == ("رفع ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and O
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
@@ -2529,7 +2529,7 @@ if text and text:match("^رفع ادمن @(.*)$") and Owner(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local username = text:match("^رفع ادمن @(.*)$")
@@ -2556,7 +2556,7 @@ if text and text:match("^رفع ادمن (%d+)$") and Owner(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local userid = text:match("^رفع ادمن (%d+)$")
@@ -2572,7 +2572,7 @@ if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 a
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 function Function_Tshake(extra, result, success)
@@ -2586,7 +2586,7 @@ if text and text:match("^تنزيل ادمن @(.*)$") and Owner(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local username = text:match("^تنزيل ادمن @(.*)$") 
@@ -2605,7 +2605,7 @@ if text and text:match("^تنزيل ادمن (%d+)$") and Owner(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local userid = text:match("^تنزيل ادمن (%d+)$")
@@ -2618,7 +2618,7 @@ if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and A
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 if not Constructor(msg) and database:get(bot_id.."Add:Group:Cheking"..msg.chat_id_) then 
@@ -2636,7 +2636,7 @@ if text and text:match("^رفع مميز @(.*)$") and Addictive(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local username = text:match("^رفع مميز @(.*)$") 
@@ -2664,7 +2664,7 @@ if text and text:match("^رفع مميز (%d+)$") and Addictive(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local userid = text:match("^رفع مميز (%d+)$")
@@ -2681,7 +2681,7 @@ if (text == ("تنزيل مميز")) and tonumber(msg.reply_to_message_id_) ~= 0
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 function Function_Tshake(extra, result, success)
@@ -2695,7 +2695,7 @@ if text and text:match("^تنزيل مميز @(.*)$") and Addictive(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local username = text:match("^تنزيل مميز @(.*)$") 
@@ -2714,7 +2714,7 @@ if text and text:match("^تنزيل مميز (%d+)$") and Addictive(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 local userid = text:match("^تنزيل مميز (%d+)$") 
@@ -2726,7 +2726,7 @@ if text and text:match("رفع (.*)") and tonumber(msg.reply_to_message_id_) > 0
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end 
 local RTPA = text:match("رفع (.*)")
@@ -2758,7 +2758,7 @@ if text and text:match("تنزيل (.*)") and tonumber(msg.reply_to_message_id_)
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end 
 local RTPA = text:match("تنزيل (.*)")
@@ -2790,7 +2790,7 @@ if text and text:match("^رفع (.*) @(.*)") and Addictive(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end 
 local text1 = {string.match(text, "^(رفع) (.*) @(.*)$")}
@@ -2825,7 +2825,7 @@ if text and text:match("^تنزيل (.*) @(.*)") and Addictive(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end 
 local text1 = {string.match(text, "^(تنزيل) (.*) @(.*)$")}
@@ -6244,7 +6244,7 @@ if text == 'تفعيل' and DevBot(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 if msg.can_be_deleted_ == false then 
@@ -6298,7 +6298,7 @@ if text == 'تعطيل' and DevBot(msg) then
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
@@ -6342,7 +6342,7 @@ if text == 'تفعيل' and not DevBot(msg) and not database:get(bot_id..'Tshake
 local url,res = https.request('https://myytbot.000webhostapp.com/join/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.ok ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@VVVVRl] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@MD_200] ⚜️')   
 return false 
 end
 if msg.can_be_deleted_ == false then 
